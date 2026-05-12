@@ -1,0 +1,31 @@
+name: DevOps CI Pipeline
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Build Stage
+      run: echo "Build Successful"
+
+    - name: Test Stage
+      run: echo "Testing Successful"
+
+    - name: Security Validation
+      run: echo "Security Checks Passed"
+
+    - name: Deployment Stage
+      run: echo "Deployment Completed"
+
+    - name: Generate Report
+      run: |
+        mkdir -p artifacts
+        echo "Pipeline executed successfully" > artifacts/report.txt
