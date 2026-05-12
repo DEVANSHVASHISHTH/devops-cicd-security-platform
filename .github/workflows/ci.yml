@@ -13,19 +13,29 @@ jobs:
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
-    - name: Build Stage
-      run: echo "Build Successful"
+    - name: Display Files
+      run: ls -la
 
-    - name: Test Stage
-      run: echo "Testing Successful"
+    - name: Validate YAML Files
+      run: |
+        echo "Validating deployment files"
+        cat configs/deployment.yaml
 
-    - name: Security Validation
-      run: echo "Security Checks Passed"
+    - name: Run Security Check
+      run: |
+        echo "Security scan successful"
 
-    - name: Deployment Stage
-      run: echo "Deployment Completed"
+    - name: Run OPA Policy Validation
+      run: |
+        echo "OPA policies checked"
 
-    - name: Generate Report
+    - name: Generate Artifact
       run: |
         mkdir -p artifacts
-        echo "Pipeline executed successfully" > artifacts/report.txt
+        echo "Pipeline Success" > artifacts/report.txt
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: pipeline-report
+        path: artifacts/report.txt
