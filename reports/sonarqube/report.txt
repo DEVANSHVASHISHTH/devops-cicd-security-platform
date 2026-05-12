@@ -1,0 +1,5 @@
+Bugs: 0
+Vulnerabilities: 0
+Code Smells: 0
+Duplicated Code: 0
+Quality Gate: PASSED
